@@ -22,7 +22,8 @@ router.post('/add', async (req, res) => {
     const location = new Location({
         locationId: req.body.locationId,
         level: req.body.level,
-        rack: req.body.rack
+        rack: req.body.rack,
+        isEmpty: true
     });
     try {
         const newLocation = await location.save();
@@ -39,7 +40,6 @@ router.patch('/update/:id', getLocation, async (req, res) => {
         // Get the location from the middleware
         const location = res.location;
 
-        // Update the location properties based on the request body
         if (req.body.locationId) {
             location.locationId = req.body.locationId;
         }
@@ -49,6 +49,9 @@ router.patch('/update/:id', getLocation, async (req, res) => {
         if (req.body.rack) {
             location.rack = req.body.rack;
         }
+        if (req.body.isEmpty !== undefined) {
+            location.isEmpty = req.body.isEmpty;
+        }
 
         // Save the updated location
         const updatedLocation = await location.save();
@@ -57,6 +60,7 @@ router.patch('/update/:id', getLocation, async (req, res) => {
         res.status(400).json({ message: err.message });
     }
 });
+
 
 
 // Delete location

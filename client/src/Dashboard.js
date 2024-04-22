@@ -1,21 +1,25 @@
 import React from 'react';
-import navbar from './components/navbar';
-import warehouseKPIs from './components/warehouseKPIs';
-import stockLevels from './components/stockLevels';
-import stockAlerts from './components/stockAlerts';
-//import ForkliftStatus from './ForkliftStatus';
-//import Statistics from './Statistics';
-//import ActivityLog from './ActivityLog';
+import './Dashboard.css';
+import Navbar from './components/Navbar';
+import WarehouseKPIs from './components/WarehouseKPIs';
+import StockLevels from './components/StockLevels';
+import StockAlerts from './components/StockAlerts';
+import ForkliftStatus from './components/ForkliftStatus';
+import Statistics from './components/Statistics';
+import ActivityLog from './components/ActivityLog';
 
 const Dashboard = () => {
+
   return (
     <div className="dashboard">
-      <navbar />
+      <Navbar />
       <div className="content">
-        <warehouseKPIs />
-        <stockLevels />
-        <stockAlerts />
-        
+        <WarehouseKPIs />
+        <StockLevels />
+        <StockAlerts />
+        <ForkliftStatus />
+        <Statistics />
+        <ActivityLog />
       </div>
     </div>
   );

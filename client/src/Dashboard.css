@@ -1,0 +1,10 @@
+.dashboard {
+    display: flex;
+    margin-left: 250px; /* Same width as navbar */
+  }
+  
+  .content {
+    flex-grow: 1; /* Take up remaining space */
+    padding: 20px;
+  }
+  

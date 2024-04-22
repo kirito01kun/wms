@@ -1,0 +1,52 @@
+.navbar {
+    background-color: #023047; /* Blue background color */
+    color: #f4f4f4; /* White text color */
+    height: 100vh;
+    width: 250px; /* Adjust width as needed */
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .navbar-brand {
+    padding: 20px;
+    text-align: center;
+    border-bottom: 1px solid #f4f4f4; /* White border */
+  }
+  
+  .navbar-brand h1 {
+    margin: 0;
+    font-size: 1.5rem;
+  }
+  
+  .navbar-links {
+    padding: 0;
+    list-style-type: none;
+    flex-grow: 1; /* Take up remaining space */
+  }
+  
+  .navbar-links li {
+    padding: 10px;
+    border-bottom: 1px solid #f4f4f4; /* White border */
+  }
+  
+  .navbar-links li:last-child {
+    border-bottom: none; /* Remove border for last item */
+  }
+  
+  .navbar-links a {
+    text-decoration: none;
+    color: #f4f4f4; /* White text color */
+    font-size: 1.5rem;
+  }
+  
+  .navbar-links a:hover {
+    color: #bebebe; /* Blue color on hover */
+  }
+  
+  .navbar-links .active a {
+    color: #fff; /* White color for active link */
+    font-weight: bold;
+}  
