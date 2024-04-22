@@ -1,7 +1,7 @@
 import React from 'react';
 import './RackHeatmap.css';
 
-const RackHeatmap = ({ rackName, rackConfig, isVisible }) => {
+const RackHeatmap = ({ rackName, rackConfig, isVisible, rackFullness }) => {
   console.log('Rendering RackHeatmap:', rackName, isVisible);
   const getColor = (isEmpty) => {
     return isEmpty ? '#2979FF' : '#FF1744';
@@ -36,6 +36,11 @@ const RackHeatmap = ({ rackName, rackConfig, isVisible }) => {
             ))}
           </div>
         ))}
+      </div>
+      <div className="rack-fullness">
+        <div className="fullness-bar" style={{ width: `${rackFullness}%` }}>
+        Rack Fullness : {rackFullness}%
+        </div>
       </div>
     </div>
   );

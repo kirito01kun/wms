@@ -1,0 +1,21 @@
+.bar-chart {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100px; /* Adjust as needed */
+    height: 100px; /* Adjust as needed */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 10px;
+  }
+  
+  .filled-bar {
+    width: 100%;
+    border-radius: 5px 5px 0 0;
+  }
+  
+  .empty-bar {
+    width: 100%;
+    border-radius: 0 0 5px 5px;
+  }
+  
