@@ -6,12 +6,7 @@ const WarehouseKPIs = () => {
     <section id="warehousekpis" className="dashboard-section">
       <h2>WarehouseKPIs</h2>
       <h2>WarehouseKPIs</h2>
-      <h2>WarehouseKPIs</h2>
-      <h2>WarehouseKPIs</h2>
-      <h2>WarehouseKPIs</h2>
-      <h2>WarehouseKPIs</h2>
-      <h2>WarehouseKPIs</h2>
-      <h2>WarehouseKPIs</h2>
+
 
       {/* Add your stock level components here */}
       <RackViz />
