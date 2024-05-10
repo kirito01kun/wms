@@ -76,8 +76,8 @@ router.delete('/del/:id', getLocation, async (req, res) => {
 // GET all locations in all racks
 router.get('/rackstatus', async (req, res) => {
     try {
-        // Fetch all locations
-        const locations = await Location.find();
+        // Fetch all locations sorted by level descendingly
+        const locations = await Location.find().sort({ level: -1 });
         
         // Initialize an object to store rack statuses
         const rackStatus = {};

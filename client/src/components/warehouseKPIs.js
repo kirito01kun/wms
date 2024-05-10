@@ -1,15 +1,12 @@
 import React from 'react';
 import RackViz from './RackViz';
+import SideKPIs from './SideKPIs';
 
 const WarehouseKPIs = () => {
   return (
     <section id="warehousekpis" className="dashboard-section">
-      <h2>WarehouseKPIs</h2>
-      <h2>WarehouseKPIs</h2>
-
-
-      {/* Add your stock level components here */}
       <RackViz />
+      <h2>WarehouseKPIs</h2>
     </section>
   );
 };
