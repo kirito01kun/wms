@@ -73,6 +73,40 @@ router.delete('/del/:id', getLocation, async (req, res) => {
     }
 });
 
+// GET all locations in all racks
+router.get('/rackstatus', async (req, res) => {
+    try {
+        // Fetch all locations
+        const locations = await Location.find();
+        
+        // Initialize an object to store rack statuses
+        const rackStatus = {};
+        
+        // Iterate through locations
+        locations.forEach(location => {
+            // Extract rack name and location status
+            const { rack, isEmpty } = location;
+            
+            // Initialize the rack if not already present
+            if (!rackStatus[rack]) {
+                rackStatus[rack] = '';
+            }
+            
+            // Append location status to rack status
+            rackStatus[rack] += isEmpty ? '0' : '1';
+        });
+        
+        // Convert rack status object to array of strings
+        const rackStatusArray = Object.entries(rackStatus).map(([rack, status]) => `${rack}${status}`);
+        
+        res.json(rackStatusArray);
+    } catch (err) {
+        res.status(500).json({ message: err.message });
+    }
+});
+
+
+
 async function getLocation(req, res, next) {
     let location;
     try {

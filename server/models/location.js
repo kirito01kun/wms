@@ -6,7 +6,7 @@ const locationSchema = new mongoose.Schema({
   rack: String,
   isEmpty: {
     type: Boolean,
-    default: true // By default, assume the location is empty
+    default: true
   }
 });
 
