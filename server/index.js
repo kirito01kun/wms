@@ -1,3 +1,4 @@
+// index.js
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
@@ -10,9 +11,10 @@ const putawayRoutes = require('./routes/api/putawayRoutes');
 const Pallet = require('./models/pallet');
 const Shipment = require('./models/shipment');
 const Location = require('./models/location');
-const Putaway = require('./models/putaway')
+const Putaway = require('./models/putaway');
 const LocationTransfer = require('./models/locationTransfer');
 const PickingLog = require('./models/pickingLog');
+const kafkaProducer = require('./kafkaProducer'); // Import the Kafka producer
 
 // Create collections if they don't exist
 Pallet.createCollection();
@@ -49,8 +51,16 @@ app.get('/', (req, res) => {
   res.send('Welcome to the Inventory Management API!');
 });
 
+const startServer = async () => {
+  try {
+    await kafkaProducer.connect(); // Connect the Kafka producer
+    app.listen(PORT, () => {
+      console.log(`Server running on port ${PORT}`);
+    });
+  } catch (error) {
+    console.error('Error starting server:', error);
+    process.exit(1);
+  }
+};
 
-// Start server
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
-});
+startServer();
