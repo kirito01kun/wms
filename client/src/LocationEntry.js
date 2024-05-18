@@ -4,7 +4,7 @@ import AddLocation from './components/AddLocation';
 import UpdateLocation from './components/UpdateLocation';
 
 
-const ApiUI = () => {
+const LocationEntry = () => {
 
   return (
     <div className='content'>
@@ -15,7 +15,5 @@ const ApiUI = () => {
         
   );
 };
-/*<ForkliftStatus />
-        <Statistics />
-        <ActivityLog />*/
-export default ApiUI;
+
+export default LocationEntry;

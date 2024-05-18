@@ -12,17 +12,31 @@ router.get('/display', async (req, res) => {
     }
 });
 
-// GET one pallet
-router.get('/display/:id', getPallet, (req, res) => {
+// GET one pallet by palletId
+router.get('/display/:palletId', getPalletByPalletId, (req, res) => {
     res.json(res.pallet);
 });
 
+async function getPalletByPalletId(req, res, next) {
+    let pallet;
+    try {
+        pallet = await Pallet.findOne({ palletId: req.params.palletId });
+        if (pallet == null) {
+            return res.status(404).json({ message: 'Cannot find pallet' });
+        }
+    } catch (err) {
+        return res.status(500).json({ message: err.message });
+    }
+
+    res.pallet = pallet;
+    next();
+}
+
 // POST new pallet
 router.post('/add', async (req, res) => {
-
     const pallet = new Pallet({
         palletId: req.body.palletId,
-        products: req.body.products // Assign the products array directly
+        products: req.body.products
     });
 
     try {
@@ -33,9 +47,8 @@ router.post('/add', async (req, res) => {
     }
 });
 
-
 // Update pallet
-router.patch('/update/:id', getPallet, async (req, res) => {
+router.patch('/update/:palletId', getPalletByPalletId, async (req, res) => {
     if (req.body.palletId != null) {
         res.pallet.palletId = req.body.palletId;
     }
