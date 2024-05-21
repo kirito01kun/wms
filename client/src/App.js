@@ -4,6 +4,7 @@ import Dashboard from './Dashboard';
 import LocationEntry from './LocationEntry';
 import PalletEntry from './PalletEntry';
 import UpdatePallet from './components/UpdatePallet';
+import AddPallet from './components/AddPallet';
 
 
 const App = () => {
@@ -14,6 +15,7 @@ const App = () => {
       <Route path="/locations" element={<LocationEntry />} />
       <Route path="/pallets" element={<PalletEntry />} />
       <Route path="/update-pallet/:id" element={<UpdatePallet />} />
+      <Route path="/add-pallet" element={<AddPallet />} />
       </Routes>
     </Router>
   );

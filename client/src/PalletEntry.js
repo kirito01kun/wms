@@ -6,7 +6,6 @@ const PalletEntry = () => {
     return (
         <div className='content'>
             <PalletList />
-            <AddPallet />
         </div>
     );
 };

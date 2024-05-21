@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import './PalletList.css'; // Import CSS for styling
 
 const PalletList = () => {
     const [pallets, setPallets] = useState([]);
@@ -32,29 +33,31 @@ const PalletList = () => {
     };
 
     if (error) {
-        return <div>{error}</div>;
+        return <div className="error-message">{error}</div>;
     }
 
     return (
-        <div>
+        <div className="pallet-list-container">
             <h2>Pallet List</h2>
-            <Link to="/add-pallet">Add New Pallet</Link>
-            <ul>
+            <Link to="/add-pallet" className="add-pallet-link">Add New Pallet</Link>
+            <ul className="pallet-list">
                 {pallets.length === 0 ? (
-                    <li>No pallets found</li>
+                    <li className="no-pallets">No pallets found</li>
                 ) : (
                     pallets.map((pallet) => (
-                        <li key={pallet.palletId}>
+                        <li key={pallet.palletId} className="pallet-item">
                             <h3>Pallet ID: {pallet.palletId}</h3>
-                            <ul>
+                            <ul className="product-list">
                                 {pallet.products.map((product, index) => (
-                                    <li key={index}>
+                                    <li key={index} className="product-item">
                                         {product.productName} (ID: {product.productId}) - Quantity: {product.quantity}
                                     </li>
                                 ))}
                             </ul>
-                            <Link to={`/update-pallet/${pallet.palletId}`}>Edit</Link>
-                            <button onClick={() => deletePallet(pallet._id)}>Delete</button>
+                            <div className="pallet-actions">
+                                <Link to={`/update-pallet/${pallet.palletId}`} className="edit-link">Edit</Link>
+                                <button onClick={() => deletePallet(pallet._id)} className="delete-btn">Delete</button>
+                            </div>
                         </li>
                     ))
                 )}

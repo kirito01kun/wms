@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import './AddPallet.css'; // Import CSS for styling
 
 const AddPallet = () => {
     const [palletId, setPalletId] = useState('');
@@ -37,52 +38,56 @@ const AddPallet = () => {
     };
 
     return (
-        <div>
+        <div className="add-pallet-container">
             <h2>Add New Pallet</h2>
-            {successMessage && <div style={{ color: 'green' }}>{successMessage}</div>}
+            {successMessage && <div className="success-message">{successMessage}</div>}
             <form onSubmit={handleSubmit}>
-                <label>
-                    Pallet ID:
+                <div className="form-group">
+                    <label>Pallet ID:</label>
                     <input
                         type="text"
                         value={palletId}
                         onChange={(e) => setPalletId(e.target.value)}
+                        className="input-field"
                     />
-                </label>
+                </div>
                 <h3>Products</h3>
                 {products.map((product, index) => (
-                    <div key={index}>
-                        <label>
-                            Product ID:
+                    <div key={index} className="product-item">
+                        <div className="form-group">
+                            <label>Product ID:</label>
                             <input
                                 type="text"
                                 name="productId"
                                 value={product.productId}
                                 onChange={(e) => handleChange(e, index)}
+                                className="input-field"
                             />
-                        </label>
-                        <label>
-                            Product Name:
+                        </div>
+                        <div className="form-group">
+                            <label>Product Name:</label>
                             <input
                                 type="text"
                                 name="productName"
                                 value={product.productName}
                                 onChange={(e) => handleChange(e, index)}
+                                className="input-field"
                             />
-                        </label>
-                        <label>
-                            Quantity:
+                        </div>
+                        <div className="form-group">
+                            <label>Quantity:</label>
                             <input
                                 type="number"
                                 name="quantity"
                                 value={product.quantity}
                                 onChange={(e) => handleChange(e, index)}
+                                className="input-field"
                             />
-                        </label>
+                        </div>
                     </div>
                 ))}
-                <button type="button" onClick={handleAddProduct}>Add Product</button>
-                <button type="submit">Save Pallet</button>
+                <button type="button" className="add-product-btn" onClick={handleAddProduct}>Add Product</button>
+                <button type="submit" className="save-pallet-btn">Save Pallet</button>
             </form>
         </div>
     );
