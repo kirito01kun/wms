@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './Navbar.css';
+import './style/Navbar.css';
 
 const Navbar = () => {
   const [activeLink, setActiveLink] = useState('');

@@ -1,6 +1,5 @@
 import React from 'react';
 import RackViz from './RackViz';
-import SideKPIs from './SideKPIs';
 
 const WarehouseKPIs = () => {
   return (

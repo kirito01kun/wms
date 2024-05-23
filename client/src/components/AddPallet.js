@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import './AddPallet.css'; // Import CSS for styling
+import './style/AddPallet.css'; // Import CSS for styling
 
 const AddPallet = () => {
     const [palletId, setPalletId] = useState('');

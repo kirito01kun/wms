@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams, useNavigate } from 'react-router-dom';
-import './UpdatePallet.css'; // Import CSS for styling
+import './style/UpdatePallet.css'; // Import CSS for styling
 
 const UpdatePallet = () => {
     const { id } = useParams();

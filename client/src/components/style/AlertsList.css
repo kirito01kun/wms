@@ -1,0 +1,134 @@
+/* AlertsList.css */
+
+.alerts-container {
+    margin: 20px;
+}
+
+.alerts-heading {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.alerts-list {
+    list-style: none;
+    padding: 0;
+}
+
+.alert-item {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease; /* Add smooth transition effect */
+}
+
+.alert-item:hover {
+    transform: translateY(-5px); /* Add slight upward lift on hover */
+}
+
+.alert-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.product-name {
+    font-weight: bold;
+    color: #333;
+}
+
+.threshold, .alert-type {
+    font-size: 16px;
+    color: #666;
+}
+
+.alert-type {
+    text-transform: capitalize;
+}
+
+.active-status {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.active {
+    color: green;
+}
+
+.inactive {
+    color: red;
+}
+
+/* Color variations for different alert types */
+[data-alert-type="normal"] {
+    color: #666;
+}
+
+[data-alert-type="warning"] {
+    color: #f39c12; /* Orange color for warning alerts */
+}
+
+[data-alert-type="critical"] {
+    color: #e74c3c; /* Red color for critical alerts */
+}
+
+/* Edit button */
+.edit-button {
+    padding: 8px 16px; /* Adjust padding for better button size */
+    background-color: #00b0ff; /* Green color for edit button */
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none; /* Remove underline */
+    transition: background-color 0.3s ease;
+}
+
+.edit-button:hover {
+    background-color: #0091ea; /* Darker shade of green on hover */
+}
+
+/* Activate button */
+.activate-button {
+    padding: 8px 16px; /* Adjust padding for better button size */
+    background-color: #007bff; /* Blue color for activate button */
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none; /* Remove underline */
+    transition: background-color 0.3s ease;
+}
+
+.activate-button:hover {
+    background-color: #0056b3; /* Darker shade of blue on hover */
+}
+
+/* Active button */
+.toggle-active-button {
+    padding: 8px 16px; /* Adjust padding for better button size */
+    background-color: #ffc107; /* Yellow color for active button */
+    color: #212529;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none; /* Remove underline */
+    transition: background-color 0.3s ease;
+}
+
+.toggle-active-button:hover {
+    background-color: #e0a800; /* Darker shade of yellow on hover */
+}
+
+/* Active state color variations */
+.toggle-active-button.active {
+    background-color: #28a745; /* Green color for active state */
+    color: #fff;
+}
+
+.toggle-active-button.inactive {
+    background-color: #dc3545; /* Red color for inactive state */
+    color: #fff;
+}

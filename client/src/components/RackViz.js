@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './RackViz.css'; // Assuming you have a CSS file for styling
+import './style/RackViz.css'; // Assuming you have a CSS file for styling
 
 const RackViz = () => {
   // State to manage card data and current slide index

@@ -1,5 +1,5 @@
 import React from 'react';
-import './SideKPIs.css'; // Import the CSS for styling
+import './style/SideKPIs.css'; // Import the CSS for styling
 
 const SideKPIs = () => {
   return (

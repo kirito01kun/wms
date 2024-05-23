@@ -3,12 +3,14 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const palletRoutes = require('./routes/api/palletRoutes');
+const alertRoutes = require('./routes/api/alertRoutes');
 const locationRoutes = require('./routes/api/locationRoutes');
 const locationTransferRoutes = require('./routes/api/locationTransferRoutes');
 const shipementRoutes = require('./routes/api/shipementRoutes');
 const pickingLogRoutes = require('./routes/api/pickingLogRoutes');
 const putawayRoutes = require('./routes/api/putawayRoutes');
 const Pallet = require('./models/pallet');
+const Alert = require('./models/alert');
 const Shipment = require('./models/shipment');
 const Location = require('./models/location');
 const Putaway = require('./models/putaway');
@@ -18,6 +20,7 @@ const kafkaProducer = require('./kafkaProducer'); // Import the Kafka producer
 
 // Create collections if they don't exist
 Pallet.createCollection();
+Alert.createCollection();
 Shipment.createCollection();
 Location.createCollection();
 Putaway.createCollection();
@@ -36,6 +39,7 @@ app.use("/api/locationTransfers", locationTransferRoutes);
 app.use("/api/shipments", shipementRoutes);
 app.use("/api/pickingLogs", pickingLogRoutes);
 app.use("/api/putaways", putawayRoutes);
+app.use("/api/alerts", alertRoutes);
 
 // MongoDB connection
 mongoose.connect('mongodb://localhost:27017/Harmony_PFE')

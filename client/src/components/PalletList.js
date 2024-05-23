@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-import './PalletList.css'; // Import CSS for styling
+import './style/PalletList.css'; // Import CSS for styling
 
 const PalletList = () => {
     const [pallets, setPallets] = useState([]);
