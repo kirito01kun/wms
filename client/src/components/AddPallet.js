@@ -1,13 +1,11 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
-import './style/AddPallet.css'; // Import CSS for styling
+import './style/AddPallet.css';
 
 const AddPallet = () => {
     const [palletId, setPalletId] = useState('');
     const [products, setProducts] = useState([{ productId: '', productName: '', quantity: 0 }]);
-    const [successMessage, setSuccessMessage] = useState('');
-    const navigate = useNavigate();
+    const [showNotification, setShowNotification] = useState(false);
 
     const handleAddProduct = () => {
         setProducts([...products, { productId: '', productName: '', quantity: 0 }]);
@@ -23,15 +21,11 @@ const AddPallet = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post('http://localhost:5000/api/pallets/add', { palletId, products });
-            setSuccessMessage(`Pallet ${response.data.palletId} added successfully`);
-            setPalletId('');
+            console.log('before response:');
+            setShowNotification(true);
             setProducts([{ productId: '', productName: '', quantity: 0 }]);
-
-            setTimeout(() => {
-                setSuccessMessage('');
-                navigate('/pallets');
-            }, 3000);
+            setTimeout(() => setShowNotification(false), 3000);
+            await axios.post('http://localhost:5000/api/pallets/add', { palletId, products });
         } catch (error) {
             console.error('Error adding pallet:', error);
         }
@@ -40,7 +34,6 @@ const AddPallet = () => {
     return (
         <div className="add-pallet-container">
             <h2>Add New Pallet</h2>
-            {successMessage && <div className="success-message">{successMessage}</div>}
             <form onSubmit={handleSubmit}>
                 <div className="form-group">
                     <label>Pallet ID:</label>
@@ -89,6 +82,7 @@ const AddPallet = () => {
                 <button type="button" className="add-product-btn" onClick={handleAddProduct}>Add Product</button>
                 <button type="submit" className="save-pallet-btn">Save Pallet</button>
             </form>
+            {showNotification && <div className="notification">Pallet created successfully!</div>}
         </div>
     );
 };

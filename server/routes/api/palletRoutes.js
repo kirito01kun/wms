@@ -3,28 +3,6 @@ const router = express.Router();
 const Pallet = require('../../models/pallet');
 const Alert = require('../../models/alert');
 
-// Function to check alerts
-async function checkAlerts(pallet) {
-    const alerts = await Alert.find({ isActive: true }).exec();
-    const productCounts = {};
-
-    pallet.products.forEach(product => {
-        if (!productCounts[product.productId]) {
-            productCounts[product.productId] = 0;
-        }
-        productCounts[product.productId] += product.quantity;
-    });
-
-    alerts.forEach(alert => {
-        if (productCounts[alert.productId] <= alert.threshold) {
-            console.log(`ALERT! Product ${alert.productName || alert.productId} is below the threshold!`);
-            // Update last triggered time
-            alert.lastTriggered = new Date();
-            alert.save();
-        }
-    });
-}
-
 // GET all pallets
 router.get('/display', async (req, res) => {
     try {
@@ -57,6 +35,7 @@ async function getPalletByPalletId(req, res, next) {
 
 // POST new pallet
 router.post('/add', async (req, res) => {
+    console.log('Received POST request to add new pallet:', req.body);
     const pallet = new Pallet({
         palletId: req.body.palletId,
         products: req.body.products

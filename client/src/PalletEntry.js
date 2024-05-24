@@ -1,6 +1,5 @@
 import React from 'react';
 import PalletList from './components/PalletList';
-import AddPallet from './components/AddPallet';
 
 const PalletEntry = () => {
     return (
