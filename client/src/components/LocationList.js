@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import './style/LocationList.css';
 
 const LocationList = () => {
     const [locations, setLocations] = useState([]);
@@ -28,15 +29,19 @@ const LocationList = () => {
     };
 
     return (
-        <div>
+        <div className="location-list-container">
             <h2>Location List</h2>
-            <Link to="/add">Add New Location</Link>
-            <ul>
+            <Link to="/add-location" className="add-location">Add New Location</Link>
+            <ul className="location-list">
                 {locations.map((location) => (
-                    <li key={location._id}>
-                        {location.rack} - {location.level} - {location.isEmpty ? 'Empty' : 'Occupied'}
-                        <Link to={`/update/${location._id}`}>Edit</Link>
-                        <button onClick={() => deleteLocation(location._id)}>Delete</button>
+                    <li key={location._id} className="location-item">
+                        <div className="location-info">
+                            {location.rack} - {location.level} - {location.isEmpty ? 'Empty' : 'Occupied'}
+                        </div>
+                        <div className="actions">
+                            <Link to={`/update-location/${location.locationId}`} className="edit">Edit</Link>
+                            <button onClick={() => deleteLocation(location._id)} className="delete">Delete</button>
+                        </div>
                     </li>
                 ))}
             </ul>

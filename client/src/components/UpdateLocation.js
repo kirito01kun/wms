@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams, useNavigate } from 'react-router-dom';
+import './style/UpdateLocation.css';
 
 const UpdateLocation = () => {
   const { id } = useParams();
@@ -45,33 +46,54 @@ const UpdateLocation = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label>
-        Location ID:
-        <input type="text" name="locationId" value={location.locationId} onChange={handleChange} />
-      </label>
-      <label>
-        Level:
-        <input type="text" name="level" value={location.level} onChange={handleChange} />
-      </label>
-      <label>
-        Rack:
-        <input type="text" name="rack" value={location.rack} onChange={handleChange} />
-      </label>
-      <label>
-        Is Empty:
-        <input
-          type="checkbox"
-          name="isEmpty"
-          checked={location.isEmpty}
-          onChange={(e) => setLocation(prevLocation => ({
-            ...prevLocation,
-            isEmpty: e.target.checked
-          }))}
-        />
-      </label>
-      <button type="submit">Update Location</button>
-    </form>
+    <div className="update-location-container">
+      <h2>Update Location</h2>
+      <form onSubmit={handleSubmit}>
+        <div className="form-group">
+          <label>Location ID:</label>
+          <input
+            type="text"
+            name="locationId"
+            value={location.locationId}
+            onChange={handleChange}
+            className="input-field"
+          />
+        </div>
+        <div className="form-group">
+          <label>Level:</label>
+          <input
+            type="text"
+            name="level"
+            value={location.level}
+            onChange={handleChange}
+            className="input-field"
+          />
+        </div>
+        <div className="form-group">
+          <label>Rack:</label>
+          <input
+            type="text"
+            name="rack"
+            value={location.rack}
+            onChange={handleChange}
+            className="input-field"
+          />
+        </div>
+        <div className="form-group form-group-checkbox">
+          <input
+            type="checkbox"
+            name="isEmpty"
+            checked={location.isEmpty}
+            onChange={(e) => setLocation(prevLocation => ({
+              ...prevLocation,
+              isEmpty: e.target.checked
+            }))}
+          />
+          <label>Is Empty</label>
+        </div>
+        <button type="submit" className="submit-btn">Update Location</button>
+      </form>
+    </div>
   );
 };
 
