@@ -22,7 +22,9 @@ router.post('/add', async (req, res) => {
     const shipment = new Shipment({
         shipmentId: req.body.shipmentId,
         arrivalDateTime: req.body.arrivalDateTime,
-        productsReceived: req.body.productsReceived
+        expectedArrivalDateTime: req.body.expectedArrivalDateTime,
+        supplier: req.body.supplier,
+        products: req.body.products // Changed to 'products'
     });
     try {
         const newShipment = await shipment.save();
@@ -40,8 +42,14 @@ router.patch('/update/:id', getShipment, async (req, res) => {
     if (req.body.arrivalDateTime != null) {
         res.shipment.arrivalDateTime = req.body.arrivalDateTime;
     }
-    if (req.body.productsReceived != null) {
-        res.shipment.productsReceived = req.body.productsReceived;
+    if (req.body.expectedArrivalDateTime != null) {
+        res.shipment.expectedArrivalDateTime = req.body.expectedArrivalDateTime;
+    }
+    if (req.body.supplier != null) {
+        res.shipment.supplier = req.body.supplier;
+    }
+    if (req.body.products != null) { 
+        res.shipment.products = req.body.products;
     }
     try {
         const updatedShipment = await res.shipment.save();

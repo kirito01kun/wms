@@ -1,0 +1,156 @@
+/* ShipmentList.css */
+
+.shipments-container {
+    margin: 20px;
+}
+
+.shipments-heading {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.shipments-list {
+    list-style: none;
+    padding: 0;
+}
+
+.shipment-item {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease; /* Add smooth transition effect */
+}
+
+.shipment-item:hover {
+    transform: translateY(-5px); /* Add slight upward lift on hover */
+}
+
+.shipment-info {
+    padding-bottom: 20px;
+}
+
+.shipment-id {
+    font-weight: bold;
+    color: #333;
+}
+
+.arrival-date, .expected-arrival-date, .supplier {
+    font-size: 16px;
+    color: #666;
+    display: block;
+    margin-top: 10px;
+}
+
+.products-heading {
+    font-size: 18px;
+    color: #333;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.delete-button {
+    background-color: #dc3545;
+    color: #fff;
+    padding: 8px 15px;
+    font-size: 14px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.delete-button:hover {
+    background-color: #c82333;
+}
+
+.products-list {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+
+.product-item {
+    margin-right: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    max-width: calc(50% - 10px); /* Adjust product box width to fit in a row */
+}
+
+.popup-box {
+    position: absolute;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+    top: 100%;
+    left: 0;
+    width: 200px;
+    display: none;
+}
+
+.product-name:hover + .popup-box {
+    display: block;
+}
+
+
+________________
+
+
+
+.delete-button {
+    position: absolute;
+    top: 10px;
+    right: 10px; /* Position delete button on the top right corner */
+    background-color: #dc3545;
+    color: #fff;
+    padding: 8px 15px;
+    font-size: 14px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.delete-button:hover {
+    background-color: #c82333;
+}
+
+.products-list {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+
+.product-item {
+    margin-right: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    max-width: calc(50% - 10px); /* Adjust product box width to fit in a row */
+}
+
+.popup-box {
+    position: absolute;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+    top: 100%;
+    left: 0;
+    width: 200px;
+    display: none;
+}
+
+.product-name:hover + .popup-box {
+    display: block;
+}

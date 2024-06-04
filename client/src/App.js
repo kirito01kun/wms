@@ -10,6 +10,8 @@ import UpdatePallet from './components/UpdatePallet';
 import AddPallet from './components/AddPallet';
 import AlertList from './components/AlertList';
 import AlertForm from './components/AlertForm';
+import ShipmentList from './components/ShipmentList';
+import AddShipment from './components/AddShipment';
 
 
 const App = () => {
@@ -25,7 +27,9 @@ const App = () => {
       <Route path="/update-pallet/:id" element={<UpdatePallet />} />
       <Route path="/add-pallet" element={<AddPallet />} />
       <Route path="/alerts" element={<AlertList />} />
+      <Route path="/shipments" element={<ShipmentList />} />
       <Route path="/alerts-form" element={<AlertForm />} />
+      <Route path="/add-shipment" element={<AddShipment />} />
       </Routes>
     </Router>
   );

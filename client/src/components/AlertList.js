@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import UpdateAlert from './UpdateAlert';
-import './style/AlertsList.css'; // Import CSS file for styling
+import './style/AlertList.css';
 
 const AlertsList = () => {
     const [alerts, setAlerts] = useState([]);
