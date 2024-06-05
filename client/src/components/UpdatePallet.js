@@ -61,7 +61,8 @@ const UpdatePallet = () => {
         };
         try {
             await axios.patch(`http://localhost:5000/api/pallets/update/${id}`, updatedPallet);
-            navigate('/pallets');
+            console.log("yay")
+            navigate('/inventory');
         } catch (error) {
             console.error('Error updating pallet:', error);
         }

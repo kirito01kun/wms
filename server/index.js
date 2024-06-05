@@ -7,7 +7,7 @@ const alertRoutes = require('./routes/api/alertRoutes');
 const locationRoutes = require('./routes/api/locationRoutes');
 const locationTransferRoutes = require('./routes/api/locationTransferRoutes');
 const shipementRoutes = require('./routes/api/shipementRoutes');
-const pickingLogRoutes = require('./routes/api/pickingLogRoutes');
+const pickingRoutes = require('./routes/api/pickingRoutes');
 const putawayRoutes = require('./routes/api/putawayRoutes');
 const Pallet = require('./models/pallet');
 const Alert = require('./models/alert');
@@ -15,7 +15,7 @@ const Shipment = require('./models/shipment');
 const Location = require('./models/location');
 const Putaway = require('./models/putaway');
 const LocationTransfer = require('./models/locationTransfer');
-const PickingLog = require('./models/pickingLog');
+const Picking = require('./models/picking');
 const kafkaProducer = require('./kafkaProducer'); // Import the Kafka producer
 
 // Create collections if they don't exist
@@ -25,7 +25,7 @@ Shipment.createCollection();
 Location.createCollection();
 Putaway.createCollection();
 LocationTransfer.createCollection();
-PickingLog.createCollection();
+Picking.createCollection();
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -37,7 +37,7 @@ app.use("/api/pallets", palletRoutes);
 app.use("/api/locations", locationRoutes);
 app.use("/api/locationTransfers", locationTransferRoutes);
 app.use("/api/shipments", shipementRoutes);
-app.use("/api/pickingLogs", pickingLogRoutes);
+app.use("/api/pickings", pickingRoutes);
 app.use("/api/putaways", putawayRoutes);
 app.use("/api/alerts", alertRoutes);
 

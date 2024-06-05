@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const PickingLog = require('../../models/pickingLog');
+const PickingLog = require('../../models/picking');
 
 // GET all picking logs
 router.get('/display', async (req, res) => {

@@ -39,7 +39,7 @@ const UpdateLocation = () => {
     console.log('Updating location with id:', location.locationId); // Log the locationId value
     try {
       await axios.patch(`http://localhost:5000/api/locations/update/${location.locationId}`, location);
-      navigate('/locations');
+      navigate('/picking');
     } catch (error) {
       console.error('Error updating location:', error);
     }

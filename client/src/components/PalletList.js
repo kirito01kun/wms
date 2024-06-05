@@ -47,6 +47,7 @@ const PalletList = () => {
                     pallets.map((pallet) => (
                         <li key={pallet.palletId} className="pallet-item">
                             <h3>Pallet ID: {pallet.palletId}</h3>
+                            <p>Availability: {pallet.isPlaced ? 'Placed' : 'Available'}</p>
                             <ul className="product-list">
                                 {pallet.products.map((product, index) => (
                                     <li key={index} className="product-item">

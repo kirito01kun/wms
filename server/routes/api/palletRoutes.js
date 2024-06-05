@@ -52,20 +52,28 @@ router.post('/add', async (req, res) => {
 
 // Update pallet
 router.patch('/update/:palletId', getPalletByPalletId, async (req, res) => {
-    if (req.body.palletId != null) {
-        res.pallet.palletId = req.body.palletId;
-    }
-    if (req.body.products != null) {
-        res.pallet.products = req.body.products;
-    }
     try {
-        const updatedPallet = await res.pallet.save();
-        await checkAlerts(updatedPallet); // Check alerts after updating
+        const pallet = res.pallet;
+        console.log('Received palletId:', req.params.palletId); // Log the received palletId
+
+        // Update pallet fields
+        if (req.body.palletId != null) {
+            pallet.palletId = req.body.palletId;
+        }
+        if (req.body.products != null) {
+            pallet.products = req.body.products;
+        }
+        if (req.body.isPlaced != null) {
+            pallet.isPlaced = req.body.isPlaced;
+        }
+
+        const updatedPallet = await pallet.save();
         res.json(updatedPallet);
     } catch (err) {
         res.status(400).json({ message: err.message });
     }
 });
+
 
 // Delete pallet
 router.delete('/del/:id', getPallet, async (req, res) => {

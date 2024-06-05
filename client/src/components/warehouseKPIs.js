@@ -10,11 +10,7 @@ const WarehouseKPIs = () => {
   return (
     <section id="warehousekpis" className="dashboard-section">
       <RackViz />
-      <h2>WarehouseKPIs</h2>
-      <AlertList />
-      <ShipmentList />
-      <PalletList />
-      <LocationList />
+
     </section>
   );
 };

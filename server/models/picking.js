@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const pickingLogSchema = new mongoose.Schema({
+const pickingSchema = new mongoose.Schema({
   palletId: String,
   pickType: String, // "full" or "loose"
   pickedProducts: [{
@@ -11,4 +11,4 @@ const pickingLogSchema = new mongoose.Schema({
   pickDateTime: Date
 });
 
-module.exports = mongoose.model('pickingLog', pickingLogSchema);
+module.exports = mongoose.model('picking', pickingSchema);
