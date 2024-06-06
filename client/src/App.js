@@ -17,18 +17,19 @@ import RackViz from './components/RackViz';
 import Layout from './components/Layout'
 import LocationList from './components/LocationList';
 import Putaway from './components/Putaway';
+import PickOperation from './components/PickOperation';
 
 const App = () => {
   return (
     <Router>
       <Routes>
       <Route path="/" element={<Layout />}>
-          <Route path="dashboard" element={<Dashboard />} />
+          <Route path="dashboard" element={<LocationList />} />
           <Route path="shipments" element={<ShipmentList />} />
           <Route path="putaway" element={<Putaway />} />
-          <Route path="picking" element={<LocationList />} />
+          <Route path="picking" element={<PickOperation />} />
           <Route path="inventory" element={<PalletList />} />
-          <Route path="reports" element={<AlertList />} />
+          <Route path="reports" element={<RackViz />} />
           <Route path="admin" element={<Dashboard />} />
           <Route path="locations" element={<LocationEntry />} />
           <Route path="add-location" element={<AddLocation />} />

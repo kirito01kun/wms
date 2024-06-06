@@ -1,3 +1,5 @@
+// routes/location.js
+
 const express = require('express');
 const router = express.Router();
 const Location = require('../../models/location');
@@ -35,7 +37,6 @@ const publishToKafka = async (req, res, next) => {
   next();
 };
 
-
 // GET all locations
 router.get('/display', async (req, res) => {
   try {
@@ -67,11 +68,21 @@ router.post('/add', publishToKafka, async (req, res) => {
   }
 });
 
+// GET location by pallet ID
+router.get('/pallet/:palletId', async (req, res) => {
+  try {
+    const location = await Location.findOne({ pallet: req.params.palletId });
+    res.json(location);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+});
+
 // Update location
 router.patch('/update/:locationId', getLocationByLocationId, publishToKafka, async (req, res) => {
   try {
     const location = res.location;
-    console.log('Received locationId:', req.params.locationId); // Log the received locationId
+    console.log('Received locationId:', req); // Log the received locationId
     // Update location fields
     if (req.body.locationId != null) {
       location.locationId = req.body.locationId;
@@ -84,6 +95,9 @@ router.patch('/update/:locationId', getLocationByLocationId, publishToKafka, asy
     }
     if (req.body.isEmpty != null) {
       location.isEmpty = req.body.isEmpty;
+    }
+    if (req.body.pallet != null) {
+      location.pallet = req.body.pallet;
     }
     const updatedLocation = await location.save();
     res.json(updatedLocation);
@@ -117,7 +131,7 @@ router.get('/rackstatus', async (req, res) => {
     const rackStatusArray = Object.entries(rackStatus).map(([rack, status]) => `${rack}${status}`);
     res.json(rackStatusArray);
   } catch (err) {
-    res.status(500).json({ message: err.message });
+    res.status500json({ message: err.message });
   }
 });
 

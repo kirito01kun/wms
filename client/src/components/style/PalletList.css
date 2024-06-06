@@ -106,3 +106,7 @@ h2 {
     border-radius: 4px;
     background-color: #f8d7da;
 }
+.pallet-list-scrollable {
+    max-height: 400px; /* Adjust the max height as needed */
+    overflow-y: auto;
+}

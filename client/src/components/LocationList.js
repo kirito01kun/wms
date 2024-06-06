@@ -36,7 +36,10 @@ const LocationList = () => {
                 {locations.map((location) => (
                     <li key={location._id} className="location-item">
                         <div className="location-info">
-                            {location.rack} - {location.level} - {location.isEmpty ? 'Empty' : 'Occupied'}
+                            {location.locationId} - {location.level} - {location.isEmpty ? 'Empty' : 'Occupied'}
+                            {location.pallet && (
+                                <span> - Pallet ID: {location.pallet}</span>
+                            )}
                         </div>
                         <div className="actions">
                             <Link to={`/update-location/${location.locationId}`} className="edit">Edit</Link>

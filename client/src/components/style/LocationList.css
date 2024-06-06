@@ -82,3 +82,8 @@
 .location-item button.delete:hover {
     background-color: #c82333;
 }
+
+.location-list {
+    max-height: 400px; /* Adjust the height as needed */
+    overflow-y: auto;
+}

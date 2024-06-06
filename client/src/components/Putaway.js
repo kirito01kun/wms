@@ -1,4 +1,3 @@
-// src/pages/Putaway.js
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Box, Button, FormControl, InputLabel, Select, MenuItem } from '@mui/material';
@@ -37,28 +36,37 @@ const Putaway = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
+      // Create putaway record
       await axios.post('http://localhost:5000/api/putaways/add', {
         palletId: selectedPallet,
         locationId: selectedLocation,
       });
+  
+      // Update selected location's pallet variable with the _id of the selected pallet
+      await axios.patch(`http://localhost:5000/api/locations/update/${selectedLocation}`, {
+        pallet: selectedPallet,
+        isEmpty: false // Assuming the location is no longer empty after putaway
+      });
+  
       alert('Putaway operation successful!');
-
+  
       // Reset form fields
       setSelectedPallet('');
       setSelectedLocation('');
-
+  
       // Refresh the pallets and locations list to reflect the changes
       const palletResponse = await axios.get('http://localhost:5000/api/pallets/display');
       const availablePallets = palletResponse.data.filter(pallet => !pallet.isPlaced);
       setPallets(availablePallets);
-
+  
       const locationResponse = await axios.get('http://localhost:5000/api/locations/display');
       setLocations(locationResponse.data);
-
+  
     } catch (error) {
       console.error('Error creating putaway record:', error);
     }
   };
+  
 
   return (
     <Box component="form" onSubmit={handleSubmit} sx={{ mt: 3 }}>

@@ -1,3 +1,5 @@
+// models/location.js
+
 const mongoose = require('mongoose');
 
 const locationSchema = new mongoose.Schema({
@@ -7,6 +9,11 @@ const locationSchema = new mongoose.Schema({
   isEmpty: {
     type: Boolean,
     default: true
+  },
+  pallet: {
+    type: String,
+    ref: 'Pallet',
+    default: null
   }
 });
 
