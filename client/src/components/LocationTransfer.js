@@ -1,3 +1,4 @@
+// LocationTransfer.js
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Box, Button, FormControl, InputLabel, Select, MenuItem, Typography } from '@mui/material';
@@ -59,6 +60,14 @@ const LocationTransfer = () => {
       await axios.patch(`http://localhost:5000/api/pallets/update/${selectedPallet}`, {
         isPlaced: true,
         location: targetLocation
+      });
+
+      // Register the transfer in locationTransfers collection
+      await axios.post('http://localhost:5000/api/locationTransfers/add', {
+        palletId: selectedPallet,
+        sourceLocation,
+        destinationLocation: targetLocation,
+        transferDateTime: new Date().toISOString()
       });
 
       // Fetch updated data

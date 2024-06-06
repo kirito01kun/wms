@@ -15,7 +15,7 @@ const RackViz = () => {
         const rack = rackStatus.charAt(0);
         const label = `${rack}${level}${location}`;
         squares.push(
-          <div key={label} className="square" style={{ backgroundColor: rackStatus.charAt(locationIndex) === '0' ? 'red' : 'green' }}>
+          <div key={label} className="square" style={{ backgroundColor: rackStatus.charAt(locationIndex) === '0' ? '#FF1744' : '#00E676' }}>
             <div className="label">{label}</div>
           </div>
         );
