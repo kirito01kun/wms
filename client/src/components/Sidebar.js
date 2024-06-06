@@ -34,6 +34,10 @@ const Sidebar = () => {
                     <ListItemIcon><Inventory /></ListItemIcon>
                     <ListItemText primary="Picking Operations" />
                 </ListItem>
+                <ListItem button component={Link} to="/transfer">
+                    <ListItemIcon><Inventory /></ListItemIcon>
+                    <ListItemText primary="Location Transfer Operations" />
+                </ListItem>
                 <ListItem button component={Link} to="/inventory">
                     <ListItemIcon><Inventory /></ListItemIcon>
                     <ListItemText primary="Inventory Management" />

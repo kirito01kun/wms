@@ -1,7 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Dashboard from './Dashboard';
-import Home from './Home';
 import LocationEntry from './LocationEntry';
 import AddLocation from './components/AddLocation';
 import UpdateLocation from './components/UpdateLocation';
@@ -18,6 +17,7 @@ import Layout from './components/Layout'
 import LocationList from './components/LocationList';
 import Putaway from './components/Putaway';
 import PickOperation from './components/PickOperation';
+import LocationTransfer from './components/LocationTransfer';
 
 const App = () => {
   return (
@@ -29,6 +29,7 @@ const App = () => {
           <Route path="putaway" element={<Putaway />} />
           <Route path="picking" element={<PickOperation />} />
           <Route path="inventory" element={<PalletList />} />
+          <Route path="transfer" element={<LocationTransfer />} />
           <Route path="reports" element={<RackViz />} />
           <Route path="admin" element={<Dashboard />} />
           <Route path="locations" element={<LocationEntry />} />
