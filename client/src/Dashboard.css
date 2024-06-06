@@ -1,9 +1,11 @@
+/* Dashboard.css */
 .dashboard {
-  display: flex;
+  padding: 20px;
 }
 
-.content {
-  flex-grow: 1;
-  padding: 20px;
-  margin-left: 250px;
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+  justify-items: center; /* Center cards horizontally */
 }

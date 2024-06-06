@@ -1,22 +1,19 @@
+// Dashboard.js
 import React from 'react';
-import './Dashboard.css';
-import Navbar from './components/Sidebar';
-import WarehouseKPIs from './components/WarehouseKPIs';
-import StockLevels from './components/StockLevels';
-import StockAlerts from './components/StockAlerts';
-import ForkliftStatus from './components/ForkliftStatus';
-import Statistics from './components/Statistics';
-import ActivityLog from './components/ActivityLog';
+import PalletOccupancyOverview from './components/PalletOccupancyOverview';
+import LocationUtilizationByRack from './components/LocationUtilizationByRack';
+// Import other visualization components as they are created
 
 const Dashboard = () => {
-
   return (
     <div className="dashboard">
-        <WarehouseKPIs />
+      <h1>Warehouse Dashboard</h1>
+      <div className="dashboard-grid">
+        <PalletOccupancyOverview />
+        <LocationUtilizationByRack/>
+      </div>
     </div>
   );
 };
-/*<ForkliftStatus />
-        <Statistics />
-        <ActivityLog />*/
+
 export default Dashboard;

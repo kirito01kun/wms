@@ -1,0 +1,13 @@
+/* LocationUtilizationByRack.css */
+.location-card {
+    max-width: 600px; /* Set the max-width of the card */
+    margin: auto; /* Center the card */
+    margin-bottom: 20px; /* Add some spacing below the card */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional shadow for better appearance */
+  }
+  
+  .chart-container {
+    height: 400px; /* Adjust the height to make the chart smaller */
+    position: relative; /* Make the chart responsive */
+  }
+  
