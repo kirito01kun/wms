@@ -61,17 +61,25 @@ const PickOperation = ({ setLocations }) => {
   };
 
   const handleProductChange = (index, key, value) => {
-    const updatedProducts = [...pickedProducts];
-    updatedProducts[index][key] = value;
-  
+    const updatedProducts = pickedProducts.map((product, idx) => {
+        if (idx === index) {
+            return {
+                ...product,
+                [key]: value
+            };
+        }
+        return product;
+    });
+
     // Adjust the quantity based on the picked quantity
     if (key === 'quantityPicked') {
-      const availableQuantity = palletProducts[index]?.quantity || 0;
-      updatedProducts[index]['quantity'] = availableQuantity - parseInt(value);
+        const availableQuantity = palletProducts[index]?.quantity || 0;
+        updatedProducts[index]['quantity'] = availableQuantity - parseInt(value);
     }
-  
+
     setPickedProducts(updatedProducts);
-  };
+};
+
   
 
   const handleSubmit = async (event) => {
