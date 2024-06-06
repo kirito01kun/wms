@@ -100,7 +100,12 @@
 }
 
 
-________________
+/* ShipmentList.css */
+
+.shipments-container {
+    max-height: 500px; /* Set a max height to enable scrolling */
+    overflow-y: auto; /* Add vertical scrollbar if content overflows */
+}
 
 
 

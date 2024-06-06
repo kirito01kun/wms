@@ -5,10 +5,11 @@ import AddShipment from './components/AddShipment';
 import ShipmentStatusOverview from './components/ShipmentStatusOverview';
 import ShipmentCalendar from './components/ShipmentCalendar';
 
+
 const Shipment = () => {
   return (
       <div>
-        <ShipmentCalendar/>
+        <ShipmentCalendar />
         <ShipmentList/>
         <AddShipment/>
         <ShipmentStatusOverview/>

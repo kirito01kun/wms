@@ -1,0 +1,110 @@
+/* ShipmentCalendar.css */
+
+.shipment-calendar-container {
+    width: 100%;
+    max-width: 900px; /* Adjusted for a smaller layout */
+    margin: 0 auto;
+    padding: 20px;
+    background-color: transparent;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.shipment-calendar-header {
+    font-size: 20px; /* Adjusted for better fit */
+    text-align: center;
+    margin-bottom: 20px;
+    color: #343a40;
+}
+
+.shipment-calendar {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 10px;
+}
+
+.rbc-calendar {
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.rbc-toolbar {
+    background-color: #424242;
+    color: #fff;
+    font-weight:600;
+    border-radius: 8px 8px 0 0;
+    padding: 5px; /* Adjusted padding for a smaller toolbar */
+}
+
+.rbc-toolbar button {
+    color: #fff;
+    background-color: #424242;
+    border: none;
+    font-weight:600;
+    padding: 3px 6px; /* Adjusted for smaller buttons */
+    border-radius: 4px;
+    margin: 0 3px; /* Adjusted for smaller margins */
+}
+
+.rbc-toolbar button:hover {
+    background-color: #0056b3;
+}
+
+.rbc-month-view, .rbc-time-view {
+    border: none;
+}
+
+.rbc-day-bg {
+    background-color: #e9ecef;
+}
+
+.rbc-date-cell {
+    padding: 3px;
+    text-align: center;
+    font-weight: bold;
+    color: #495057;
+    font-size: 0.8em; /* Smaller font size */
+}
+
+.rbc-date-cell:hover {
+    background-color: #ced4da;
+    cursor: pointer;
+}
+
+.rbc-event {
+    background-color: #4caf50; /* Green for arrived */
+    border: none;
+    color: #fff;
+    padding: 3px; /* Adjusted padding */
+    font-weight: bold;
+    border-radius: 4px;
+    text-align: center;
+    font-size: 13px; /* Smaller font size */
+}
+
+.rbc-event-red {
+    background-color: #f44336; /* Red for expected */
+}
+
+.rbc-event:hover {
+    opacity: 0.8;
+}
+
+.rbc-month-row {
+    min-height: 80px; /* Adjusted for better visibility */
+}
+
+.rbc-off-range-bg {
+    background-color: #f8f9fa;
+}
+
+.rbc-today {
+    background-color: #82b1ff;
+}
+
+.rbc-show-more {
+    background-color: #007bff;
+    color: #fff;
+    padding: 3px; /* Adjusted padding */
+    border-radius: 4px;
+}

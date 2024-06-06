@@ -1,11 +1,97 @@
 /* Dashboard.css */
+
 .dashboard {
   padding: 20px;
 }
 
 .dashboard-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: 1fr;
   gap: 20px;
-  justify-items: center; /* Center cards horizontally */
+}
+
+.dashboard-item {
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* RackViz */
+.rack-viz {
+  grid-row: 1; /* First row */
+  grid-column: 1 / span 2; /* Take up two columns */
+}
+
+.rack-viz .rack-container {
+  max-width: 100%; /* Adjust based on rack viz size */
+}
+
+/* PalletOccupancyOverview */
+.pallet-occupancy {
+  grid-row: 2; /* Second row */
+  grid-column: 2;
+}
+
+.pallet-occupancy .pallet-card {
+  max-width: 400px; /* Adjust based on rack viz size */
+}
+
+.pallet-occupancy .chart-container {
+  height: 250px; /* Adjust based on pallet occupancy chart size */
+}
+
+/* LocationUtilizationByRack */
+.location-utilization {
+  grid-column: 1;
+  grid-row: 2; /* Third row */
+}
+
+.location-utilization .location-card {
+  max-width: 500px; /* Adjust based on rack viz size */
+}
+
+.location-utilization .chart-container {
+  height: 250px; /* Adjust based on location utilization chart size */
+}
+
+/* LocationTransferActivity */
+.location-transfer {
+  grid-column: 1;
+  grid-row: 3; /* Fourth row */
+}
+
+.location-transfer .transfer-card {
+  max-width: 600px; /* Adjust based on rack viz size */
+}
+
+.location-transfer .chart-container {
+  height: 250px; /* Adjust based on location transfer chart size */
+}
+
+/* ActiveAlertsOverview */
+.active-alerts {
+  grid-column: 2;
+  grid-row: 3; /* Fifth row */
+}
+
+.active-alerts .alert-card {
+  max-width: 400px; /* Adjust based on rack viz size */
+}
+
+.active-alerts .chart-container {
+  height: 250px; /* Adjust based on active alerts chart size */
+}
+
+/* ProductQuantityDistribution */
+.product-quantity {
+  grid-row: 4; /* Sixth row */
+  grid-column: 1 / span 2; /* Take up two columns */
+}
+
+.product-quantity .product-quantity-card {
+  max-width: 100%; /* Adjust based on rack viz size */
+}
+
+.product-quantity .chart-container {
+  height: 400px; /* Adjust the height to make the chart smaller */
 }
